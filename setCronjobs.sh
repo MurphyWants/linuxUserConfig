@@ -1,5 +1,5 @@
 # Make sure we have all the environment variables
-./bashrc
+./.bashrc
 
 temp_folder_name = "temp"
 temp_cron_file_name = "cronjobs"
