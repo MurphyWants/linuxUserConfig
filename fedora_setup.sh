@@ -9,14 +9,14 @@ flatpak install -y  "com.mojang.Minecraft"
 flatpak install -y  "me.hyliu.fluentreader" 
 flatpak install -y  flathub "org.mozilla.Thunderbird" 
 flatpak install -y  "md.obsidian.Obsidian" 
-flatpak install -y  "com.authy.Authy"
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf clean all
-sudo dnf install  tailscale code git-all sqlitebrowser youtube-dl NetworkManager-tui steam-devices
+sudo dnf install  tailscale code git-all sqlitebrowser youtube-dl NetworkManager-tui steam-devices yubikey-personalization-gui clamav clamav-freshclam
+sudo dnf install gstreamer1-plugin-openh264 mozilla-openh264
 sudo systemctl enable --now tailscaled
 sudo tailscale up --accept-dns --accept-routes
 
@@ -24,5 +24,7 @@ sudo tailscale up --accept-dns --accept-routes
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 ssh-keygen -t rsa -b 4096
+
+sudo freshclam
 
 
